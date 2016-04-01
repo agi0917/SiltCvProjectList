@@ -1,0 +1,48 @@
+---
+title: "Project List"
+author: "Peter von Rohr"
+date: "1 April 2016"
+output: pdf_document
+output_file: project_list.pdf
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results = 'asis')
+```
+
+
+```{r AbrTable}
+robjAbrTable <- rqudocuhelper::refObjTable$new()
+pvecTableHeader <- c("Where",
+                     "Projects")
+robjAbrTable$setTableHeader(psTableHeader = pvecTableHeader)
+robjAbrTable$addRow(plTableRow = list(Abr = "FGCZ",
+                                      What = "Extension of R software package for statistical analysis of next generation DNA sequence data"))
+robjAbrTable$addRow(plTableRow = list(Abr = "ETH Zurich",
+                                      What = "Development of teaching support tools in R"))
+robjAbrTable$addRow(plTableRow = list(Abr = "Qualitas AG",
+                                      What = "Software development in PL/SQL for importing and maintaining a large database for Swiss livestock breeding associations"))
+robjAbrTable$addRow(plTableRow = list(Abr = "",
+                                      What = "Technical lead in project on animal data exchange between farms and the database at Qualitas AG"))
+robjAbrTable$addRow(plTableRow = list(Abr = "",
+                                      What = "Software development in R for statistical evaluations of livestock breeding data"))
+robjAbrTable$addRow(plTableRow = list(Abr = "aargNET GmbH",
+                                      What = "IT infrastructure projects for small to mid-sized companies using Microsoft server products"))
+robjAbrTable$addRow(plTableRow = list(Abr = "",
+                                      What = "Application virtualisation projects using Citrix XenApp"))
+robjAbrTable$addRow(plTableRow = list(Abr = "Nebion AG",
+                                      What = "Statistical normalisation and quality control in R for large gene-expression data repository"))
+robjAbrTable$addRow(plTableRow = list(Abr = "",
+                                      What = "Java-based extension of LibreOffice Calc Sheets for curation of gene-expression data"))
+robjAbrTable$addRow(plTableRow = list(Abr = "",
+                                      What = "Deployment of MySQL database and Java-based web-applications to company in-house environments"))
+robjAbrTable$addRow(plTableRow = list(Abr = "ETH Zurich",
+                                      What = "Research project on biological meaning of special features in DNA sequences"))
+robjAbrTable$addRow(plTableRow = list(Abr = "",
+                                      What = "Research project on inference of biological evolution"))
+#robjAbrTable$addRow(plTableRow = list(Abr = "",
+#                                      What = ""))
+robjAbrTable$to_pander_pandoc(psStyle = "grid",
+                              psJustify = rep("left", length(pvecTableHeader)),
+                              pnSplitCells = c(30,60))
+```
